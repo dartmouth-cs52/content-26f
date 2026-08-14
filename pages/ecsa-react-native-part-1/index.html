@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 85%;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    h1 {
+      font-size: 2em;
+      margin-top: 2rem;
+      background-color: #FBF3DB;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    h2 {
+      font-size: 1.5em;
+      margin-top: 1.5rem;
+      background-color: #DDEBF1;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    h3 { font-size: 1.25em; margin-top: 1rem; }
+    /* Heading block wrappers */
+    .heading-block { margin: 0; padding: 0; }
+    .heading-block h1, .heading-block h2, .heading-block h3 { margin-top: 0; }
+    .h1-block { margin-top: 2rem; }
+    .h2-block { margin-top: 1.5rem; }
+    .h3-block { margin-top: 1rem; }
+    p { margin-bottom: 1em; font-size: 16px; }
+    ul, ol {
+      margin-bottom: 1em;
+      padding-left: 1.5em;
+      list-style-position: outside;
+    }
+    ul { list-style-type: disc; }
+    ol { list-style-type: decimal; }
+    li {
+      margin-bottom: 0.25em;
+      display: list-item;
+      font-size: 16px;
+    }
+    ul ul, ol ul { list-style-type: circle; }
+    ul ul ul, ol ul ul { list-style-type: square; }
+    ol ol { list-style-type: lower-alpha; }
+    ol ol ol { list-style-type: lower-roman; }
+    code {
+      background: #f6f8fa;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 85%;
+    }
+    pre {
+      background: #f6f8fa;
+      padding: 1em;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin-bottom: 1em;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: 100%;
+    }
+    /* Code block with header and line numbers */
+    .code-block {
+      background: #1e1e1e;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1em;
+    }
+    .code-block .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      background: #161616;
+      border-bottom: 1px solid #333;
+    }
+    .code-block .code-lang {
+      color: #9ca3af;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .code-block .code-body {
+      display: flex;
+      padding: 1rem 0;
+    }
+    .code-block .line-numbers {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem 0 1rem;
+      text-align: right;
+      user-select: none;
+      color: #6b7280;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 1rem;
+      line-height: 1.625;
+    }
+    .code-block .line-numbers .line-number {
+      display: block;
+    }
+    .code-block pre {
+      flex: 1;
+      background: transparent;
+      margin: 0;
+      padding: 0 1rem 0 0;
+      overflow-x: auto;
+    }
+    .code-block pre code {
+      color: #d4d4d4;
+      font-size: 1rem;
+      line-height: 1.625;
+    }
+    .terminal-block {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    .terminal-block .terminal-header {
+      background: linear-gradient(180deg, #3c3c3c 0%, #2d2d2d 100%);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .terminal-block .terminal-dots {
+      display: flex;
+      gap: 8px;
+    }
+    .terminal-block .terminal-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .terminal-block .terminal-dots span:nth-child(1) { background: #ff5f57; }
+    .terminal-block .terminal-dots span:nth-child(2) { background: #febc2e; }
+    .terminal-block .terminal-dots span:nth-child(3) { background: #28c840; }
+    .terminal-block .terminal-title {
+      flex: 1;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-right: 60px;
+    }
+    .terminal-block pre {
+      background: transparent;
+      margin: 0;
+      padding: 1rem;
+      font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Menlo', 'Consolas', monospace;
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .terminal-block pre code {
+      background: transparent;
+      color: #d1d5db;
+      padding: 0;
+      font-size: inherit;
+      font-family: inherit;
+    }
+    .terminal-block .terminal-prompt {
+      color: #4ade80;
+      user-select: none;
+    }
+    blockquote {
+      border-left: 4px solid #ddd;
+      margin: 1em 0;
+      padding-left: 1em;
+      color: #666;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75em;
+      text-align: left;
+    }
+    th {
+      background: #f6f8fa;
+      font-weight: 600;
+    }
+    a {
+      color: #0969da;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .callout {
+      background: #f7f6f3;
+      padding: 1em;
+      border-radius: 6px;
+      display: flex;
+      gap: 0.75em;
+      margin-bottom: 1em;
+    }
+    .callout-emoji {
+      font-size: 1.25em;
+    }
+    .alert {
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 4px solid;
+      margin-bottom: 1em;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .alert-info {
+      background: #dbeafe;
+      border-left-color: #3b82f6;
+    }
+    .alert-warning {
+      background: #fef3c7;
+      border-left-color: #f59e0b;
+    }
+    .alert-error {
+      background: #fee2e2;
+      border-left-color: #ef4444;
+    }
+    .alert-success {
+      background: #d1fae5;
+      border-left-color: #10b981;
+    }
+    .alert-note {
+      background: #f3f4f6;
+      border-left-color: #6b7280;
+    }
+    .alert::before {
+      content: '';
+      font-size: 1.25em;
+    }
+    .alert-info::before { content: '💡'; }
+    .alert-warning::before { content: '⚠️'; }
+    .alert-error::before { content: '🚨'; }
+    .alert-success::before { content: '✅'; }
+    .alert-note::before { content: '📌'; }
+    .checklist-item {
+      display: flex;
+      align-items: start;
+      gap: 0.75rem;
+      margin-bottom: 0.5em;
+    }
+    .checklist-item input[type="checkbox"] {
+      margin-top: 0.375rem;
+      width: 1rem;
+      height: 1rem;
+      cursor: not-allowed;
+    }
+    .checklist-item input[type="checkbox"]:checked + span {
+      text-decoration: line-through;
+      color: #9ca3af;
+    }
+    .file-tree {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1em;
+    }
+    .file-tree::before {
+      content: attr(data-title);
+      display: block;
+      background: #f3f4f6;
+      color: #6b7280;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .file-tree pre {
+      background: transparent;
+      color: #374151;
+      margin: 0;
+      padding: 1rem;
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 1em;
+      border-radius: 6px;
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .file-download {
+      background: #f6f8fa;
+      border: 1px solid #e1e4e8;
+      border-radius: 6px;
+      padding: 1em;
+      margin-bottom: 1em;
+    }
+    .file-download a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      color: #0969da;
+      font-weight: 500;
+    }
+    .file-download a::before {
+      content: '📎';
+    }
+    .page-link-block {
+      display: block;
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0 -0.5rem 1em -0.5rem;
+      border-radius: 0.25rem;
+      transition: background-color 0.15s;
+      cursor: pointer;
+    }
+    .page-link-block:hover {
+      background-color: #f3f4f6;
+    }
+    .page-link-block a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #111827;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .page-link-block a:hover {
+      text-decoration: underline;
+    }
+    .page-link-block a::before {
+      content: '📄';
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .profile-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 1em;
+      background: white;
+      width: 100%;
+    }
+    .columns .profile-card {
+      max-width: 100%;
+    }
+    .profile-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #f3f4f6;
+      margin: 0;
+    }
+    .profile-card > div {
+      padding: 1rem;
+    }
+    .profile-card strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: #111827;
+    }
+    .profile-card em {
+      display: block;
+      font-size: 14px;
+      font-style: normal;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+    .embed-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 1em;
+      border-radius: 6px;
+      border: 1px solid #e1e4e8;
+    }
+    .embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .columns {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 1em;
+    }
+    .columns[data-columns="2"] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .columns[data-columns="3"] {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .columns[data-columns="4"] {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .column {
+      min-height: 50px;
+    }
+    @media (max-width: 768px) {
+      .columns {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+<body>
+<p>Today we’ll be using React Native to build an app that allows us to search YouTube (just like <a href="https://app.classmoji.io/dartmouth-cs52-26w/pages/cb1b1fc2-39ca-4151-a252-6a4fc0cbca7f">SA3</a>, way back when.)</p>
+<img src="https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/ecsa-react-native-part-1/assets/react-native-videos-1767548288941.gif" alt="">
+<p>React Native is very cool - all your react skills can transfer over.</p>
+<p>⚠️ Important note! We will be using <a href="http://expo.io/">Expo.io</a> to start your project which should allow it to work more easily on Windows and older OS X though. Expo provides a cool cloud simulator so you can test your app more easily.</p>
+<div class="heading-block h2-block"><h2>Set Up</h2></div>
+<p>🚀&nbsp;You can do this extra credit in your own repos, all you need to do is submit screenshots and a description in the Extra Credit repository in the classroom.</p>
+<div class="heading-block h3-block"><h3>Expo.io</h3></div>
+<p>🚀 Go to <a href="http://expo.io/">http://expo.io</a> and create a free account! </p>
+<div class="heading-block h3-block"><h3>Command Line</h3></div>
+<p>We should already have node installed on our machines, but just in case, let’s go way to the beginning:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">brew install node</code></pre></div>
+<p>🚀 And, <em>if on macOS / Linux</em>, we should install Watchman, too, since on those platforms React Native depends on it.</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">brew install watchman</code></pre></div>
+<p>Watchman is a file watching service that records when files change, and triggers actions when it detects changes.</p>
+<p>🚀 Alright, now we’re ready to use react-native! We’ll be using the expo command line to init our project.</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">yarn global add expo-cli</code></pre></div>
+<p>Great! Now we’re ready to create our repo.</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npx create-expo-app --template
+# choose blank as the template, although at another time you can play with the more complicated one
+# name the repo youtube-search-app
+💻 cd youtube-search-app
+💻 npm run ios</code></pre></div>
+<p>This will run a server than you can then either connect to with then Expo app on your phone (scan the QR code) or launch a simulator via the directions (press the <code>i</code> key on the active terminal).</p>
+<p>⚠️ Make sure you are using Expo v50 or above. Lower versions are <strong>deprecated</strong> and probably will not work.</p>
+<div class="heading-block h3-block"><h3>Expo Developer Menu</h3></div>
+<p>This menu gives you access to several functions which are useful for debugging and is built into the Expo Go or dev client apps. If you are using the emulator, simulator, or have your device connected via USB, you can open this menu by pressing&nbsp;<strong>m</strong>&nbsp;in the terminal where Expo was started.</p>
+<p>Alternative methods include:</p>
+<ul><li>iOS device (without USB):<ul><li>Shake the device.</li><li>Touch 3 fingers to the screen.</li></ul></li><li>iOS Simulator or device (with USB):<ul><li>Press&nbsp;<code>Ctrl + Cmd ⌘ + z</code> or <code>Cmd ⌘ + d</code></li></ul></li></ul>
+<p>Once you have opened the Developer menu, it will appear as below:</p>
+<img src="https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/ecsa-react-native-part-1/assets/untitled-1767548288941.png" alt="Untitled">
+<p>The developer menu provides multiple options:</p>
+<ul><li>Reload: reloads your app. Usually not necessary since Fast Refresh is enabled by default</li><li>Copy Link: copy the&nbsp;<a href="https://docs.expo.dev/guides/linking#linking-to-expo-go"><code>exp://</code></a>&nbsp;link of your app.</li><li>Go Home: leave your app and navigate back to the Expo Go app's Home screen</li><li>Enable/Disable Fast Refresh: toggle automatic refreshing of the JS bundle whenever you make changes to files in your project using a text editor (hot reloading)</li></ul>
+<div class="heading-block h2-block"><h2>Installing Dependencies</h2></div>
+<p>We’re going to need a few dependencies from our trusty friend, the Node Package Manager.</p>
+<p>🚀 Since we’re making calls to the YouTube api, it would help if we made GET calls with axios, so:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash"># make sure you are cd'd into project dir
+💻 npm install axios</code></pre></div>
+<p>Next, we’ll need some specific react-native components that some other open source developers have kindly provided to us. This is fairly common in the react-native community, and it’s great to have these pre-styled components at our disposal so we don’t have to go through all the trouble of making an input field look nice, for example.</p>
+<p>🚀 There’s one additional component we’ll be using in the workshop, a search bar from: <a href="https://reactnativeelements.com/docs/searchbar/">react-native-elements</a>, a simple input field made to look like the classic iOS search bar.</p>
+<p>🚀 <code>💻 npm install react-native-elements</code></p>
+<div class="heading-block h2-block"><h2>ESLint</h2></div>
+<p>We can’t live without this:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npm install -D eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y babel-eslint</code></pre></div>
+<p>🚀 Create a <code>.eslintrc.json</code> file from the following code and restart your code editor to pick up changes:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span><span class="line-number">29</span><span class="line-number">30</span><span class="line-number">31</span><span class="line-number">32</span><span class="line-number">33</span><span class="line-number">34</span><span class="line-number">35</span><span class="line-number">36</span><span class="line-number">37</span><span class="line-number">38</span><span class="line-number">39</span><span class="line-number">40</span><span class="line-number">41</span><span class="line-number">42</span><span class="line-number">43</span><span class="line-number">44</span><span class="line-number">45</span><span class="line-number">46</span><span class="line-number">47</span><span class="line-number">48</span><span class="line-number">49</span><span class="line-number">50</span><span class="line-number">51</span><span class="line-number">52</span><span class="line-number">53</span><span class="line-number">54</span><span class="line-number">55</span><span class="line-number">56</span><span class="line-number">57</span><span class="line-number">58</span><span class="line-number">59</span><span class="line-number">60</span><span class="line-number">61</span><span class="line-number">62</span><span class="line-number">63</span><span class="line-number">64</span><span class="line-number">65</span><span class="line-number">66</span><span class="line-number">67</span><span class="line-number">68</span><span class="line-number">69</span><span class="line-number">70</span><span class="line-number">71</span><span class="line-number">72</span><span class="line-number">73</span><span class="line-number">74</span><span class="line-number">75</span><span class="line-number">76</span><span class="line-number">77</span><span class="line-number">78</span></div><pre><code class="language-javascript">{
+  "extends": "airbnb",
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "strict": 0,
+    "quotes": [
+      2,
+      "single"
+    ],
+    "no-else-return": 0,
+    "new-cap": 0,
+    "no-console": 0,
+    "import/no-unresolved": [
+      2,
+      {
+        "caseSensitive": false
+      }
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "none"
+      }
+    ],
+    "no-underscore-dangle": 0,
+    "arrow-body-style": 0,
+    "one-var": [
+      "error",
+      {
+        "uninitialized": "always",
+        "initialized": "never"
+      }
+    ],
+    "one-var-declaration-per-line": [
+      "error",
+      "initializations"
+    ],
+    "max-len": 0,
+    "no-extra-parens": 0,
+    "no-plusplus": 0,
+    "no-restricted-syntax": [
+      0,
+      "DebuggerStatement"
+    ],
+    "no-debugger": 1,
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
+    "react/prop-types": 0,
+    "react/jsx-first-prop-new-line": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0,
+    "prefer-destructuring": 1,
+    "class-methods-use-this": 0,
+    "no-use-before-define": [
+      2,
+      {
+        "variables": false
+      }
+    ],
+    "import/no-extraneous-dependencies": 0
+  },
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "sourceType": "module"
+    }
+  }
+}</code></pre></div></div>
+<div class="heading-block h2-block"><h2>Basic Navigation</h2></div>
+<p>One of the classic navigation components in iOS is the Tab Bar. We’ll be using the <a href="https://reactnavigation.org/docs/en/getting-started.html">React Navigation</a> plugin to help with this. You may encounter many conficting packages for doing this, TabBarIOS, NavigatorIOS, etc, but React Navigation’s Stack Navigator is currently the best option for this. It navigates using string <em>Screen</em> identifiers. There is lots of documentation available.</p>
+<p>🚀 Create a new directory in the top level of the project folder called <code>navigation</code>.</p>
+<p>🚀 Now let’s install some of the React Navigation dependencies.</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npm install @react-navigation/native @react-navigation/bottom-tabs</code></pre></div>
+<p>and</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npx expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view</code></pre></div>
+<p>The <code>npx expo install</code> command will ensure that we’re installing dependencies that are compatible with the Expo SDK version that you’re using.</p>
+<div class="heading-block h3-block"><h3>Tabs</h3></div>
+<p>Tabs are a pretty common feature of apps, let’s set up some using <a href="https://reactnavigation.org/docs/en/tab-based-navigation.html">Tab Navigation</a>.</p>
+<p>🚀 Create a file called <code>navigation/main_tab_bar.js</code>:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span><span class="line-number">29</span><span class="line-number">30</span><span class="line-number">31</span><span class="line-number">32</span><span class="line-number">33</span><span class="line-number">34</span><span class="line-number">35</span></div><pre><code class="language-javascript">import React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const AboutTab = (props) =&gt; {
+  return (
+    &lt;View style={{ flex: 1, justifyContent: 'center' }}&gt;
+      &lt;Text&gt;about&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+const SearchTab = (props) =&gt; {
+  return (
+    &lt;View style={{ flex: 1, justifyContent: 'center' }}&gt;
+      &lt;Text&gt;Search&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+const Tab = createBottomTabNavigator();
+
+const MainTabBar = () =&gt; {
+  return (
+    &lt;NavigationContainer&gt;
+      &lt;Tab.Navigator&gt;
+        &lt;Tab.Screen name="Search" component={SearchTab} /&gt;
+        &lt;Tab.Screen name="About" component={AboutTab} /&gt;
+      &lt;/Tab.Navigator&gt;
+    &lt;/NavigationContainer&gt;
+  );
+};
+
+export default MainTabBar;</code></pre></div></div>
+<p>🚀 Now lets load this in the main <code>App.js</code>. Change <code>App.js</code> to be:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span></div><pre><code class="language-javascript">import React from 'react';
+import { LogBox } from 'react-native';
+import MainTabBar from './navigation/main_tab_bar';
+
+// disable really annoying in app warnings
+LogBox.ignoreAllLogs();
+
+const App = (props) =&gt; {
+  return &lt;MainTabBar /&gt;;
+};
+
+export default App;</code></pre></div></div>
+<p>📱 Test it out. Looks great, right?</p>
+<p>⚠️ Sometimes hot reloading doesn’t always capture new modules being added to a project and you may encounter an error complaining about requiring an unknown module. If that happens, just quit the Expo packager and restart Expo.</p>
+<div class="heading-block h2-block"><h2>About</h2></div>
+<p>Let’s play around with a simple <em>About</em> view.</p>
+<p>🚀 Create a new directory in the top level of the project folder called <code>components</code>. Then create <code>components/about.js</code>.</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span></div><pre><code class="language-javascript">import React from 'react';
+import { StyleSheet, View, Text, Image } from 'react-native';
+
+const About = () =&gt; {
+  return (
+    &lt;View style={styles.container}&gt;
+      &lt;Image
+        style={styles.image}
+        source={{ uri: 'https://facebook.github.io/react/logo-og.png' }}
+      /&gt;
+      &lt;Text&gt;This app was written in React-Native.&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  image: {
+    width: 400,
+    height: 300,
+  },
+});
+
+export default About;</code></pre></div></div>
+<p>📱 try it out!</p>
+<p>❄️ Note how we are doing styling:</p>
+<ul><li>We can really see how the styles are represented as dictionaries, with the ids being similar to css classes</li><li>Property names need not go in quotes, but if the property itself is a string, it should (like in <code>backgroundColor: 'white'</code>)</li><li>Flex is dealt with in kind of a strange way. Instead of a <code>display</code> property, these stylesheets default to flex when you simply specify <code>flex:</code> followed by some integer. This integer is a lot like the <code>flex-grow</code> property that we’re familiar with.</li><li>Finally, notice that all our integer values are simply integers! There’s no <code>px</code>, <code>pt</code>, <code>em</code>, etc. Only numbers.</li><li>If we had a central style we could simply import it wherever we need it from a <code>style_constants.js</code> file for instance. For now we’ll create the styles in the same files.</li></ul>
+<div class="heading-block h3-block"><h3>Connect About</h3></div>
+<p>Let’s load this new <em>About</em> component and make out TabBar better looking at the same time.</p>
+<p>🚀 Let’s add a package for icons:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npm install react-native-vector-icons</code></pre></div>
+<p>🚀 In your <code>navigation/main_tab_bar.js</code> file add some imports:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span></div><pre><code class="language-javascript">import Ionicons from 'react-native-vector-icons/FontAwesome';
+import About from '../components/about';</code></pre></div></div>
+<p>🚀 And replace the <code>MainTabBar</code> component with:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span><span class="line-number">29</span></div><pre><code class="language-javascript">const MainTabBar = () =&gt; {
+  return (
+    &lt;NavigationContainer&gt;
+      &lt;Tab.Navigator
+        initialRouteName="Search"
+        screenOptions={({ route }) =&gt; ({
+          tabBarIcon: ({ focused }) =&gt; {
+            let iconName;
+
+            if (route.name === 'About') {
+              iconName = 'info-circle';
+            }
+
+            return (
+              &lt;Ionicons
+                name={iconName}
+                size={26}
+                color={focused ? '#58AADA' : 'grey'}
+              /&gt;
+            );
+          },
+        })}
+      &gt;
+        &lt;Tab.Screen name="Search" component={SearchTab} /&gt;
+        &lt;Tab.Screen name="About" component={About} /&gt;
+      &lt;/Tab.Navigator&gt;
+    &lt;/NavigationContainer&gt;
+  );
+};</code></pre></div></div>
+<p>🚀 Delete the old AboutTab component while you’re at it.</p>
+<p>📱 Check it out!</p>
+<img src="https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/ecsa-react-native-part-1/assets/tabbar-1767548288941.jpg" alt="">
+<div class="heading-block h2-block"><h2>Search and Detail</h2></div>
+<p>So we’ve got some basic navigation working on the app, but it looks pretty boring. Let’s make some cool stuff on the search tab, like how about a nice table view?</p>
+<p>What we want to end up with is VideoDetail and a VideoList view similar to the SA4!</p>
+<img src="https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/ecsa-react-native-part-1/assets/videolist-1767548288941.jpg" alt="">
+<img src="https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/ecsa-react-native-part-1/assets/videodetail-1767548288942.jpg" alt="">
+<p>Note how the <em>VideoDetail</em> view has a back button at the top. This indicates that it is part of a different type of navigation structure. Specifically, it is in a <em>StackNavigator</em> where screens exist in a stack to push and pop on/off.</p>
+<p>But we already have a TabNavigator?! Turns out you can nest navigation stacks. This allows us to start off with a TabNavigator and have a StackNavigator as any of the tabs themselves. This is so that you can organize your screen flow in ways that make sense. It wouldn’t make sense to have a a back button when you switch tabs for instance.</p>
+<div class="heading-block h3-block"><h3>Create SearchTab</h3></div>
+<p>🚀 Let’s import the stack navigation package:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npm install @react-navigation/stack</code></pre></div>
+<p>🚀 Create <code>navigation/search_tab.js</code> and populate with:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span><span class="line-number">29</span><span class="line-number">30</span><span class="line-number">31</span><span class="line-number">32</span><span class="line-number">33</span><span class="line-number">34</span><span class="line-number">35</span><span class="line-number">36</span><span class="line-number">37</span><span class="line-number">38</span><span class="line-number">39</span><span class="line-number">40</span><span class="line-number">41</span><span class="line-number">42</span><span class="line-number">43</span><span class="line-number">44</span><span class="line-number">45</span><span class="line-number">46</span></div><pre><code class="language-javascript">import React from 'react';
+import { Button } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+// import VideoList from '../components/video_list';
+// import VideoDetail from '../components/video_detail';
+
+const TempSearch = (props) =&gt; (
+  &lt;Button
+    onPress={() =&gt; {
+      props.navigation.navigate('Detail');
+    }}
+    title="next"
+  /&gt;
+);
+const TempDetail = (props) =&gt; (
+  &lt;Button
+    onPress={() =&gt; {
+      props.navigation.pop();
+    }}
+    title="close"
+  /&gt;
+);
+
+const Stack = createStackNavigator();
+
+// nest stack navigator to handle two internal views
+// "name" prop is the name of the route
+const SearchTab = () =&gt; {
+  return (
+    &lt;Stack.Navigator&gt;
+      &lt;Stack.Screen
+        name="Search"
+        component={TempSearch}
+        options={{ headerShown: false }}
+      /&gt;
+      &lt;Stack.Screen
+        name="Detail"
+        component={TempDetail}
+        options={{ headerTitleStyle: { display: 'none' } }}
+      /&gt;
+    &lt;/Stack.Navigator&gt;
+  );
+};
+
+export default SearchTab;</code></pre></div></div>
+<p>Here we are using <code>createStackNavigator</code> instead but it works very similarly.</p>
+<div class="heading-block h3-block"><h3>Connect Search Tab</h3></div>
+<p>Similar to what we did with the About tab, we want to connect our new Search stack to the main tab bar.</p>
+<p>🚀 Delete the old SearchTab component inside <code>main_tab_bar.js</code> and import your new one:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">import SearchTab from './search_tab';</code></pre></div>
+<p>🚀 Next, we want to add an icon for the search tab, so edit the screenOptions prop to look like this:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span></div><pre><code class="language-javascript">screenOptions={({ route }) =&gt; ({
+  tabBarIcon: ({ focused }) =&gt; {
+    let iconName;
+
+        // Customize the icon we display based on the tab route
+    if (route.name === 'About') {
+      iconName = 'info-circle';
+    }
+        // Adding the search icon
+        else if (route.name === 'Search') {
+      iconName = 'search';
+    }
+
+        // Return the respective icon
+    return &lt;Ionicons name={iconName} size={26} color={focused ? '#58AADA' : 'grey'} /&gt;;
+  },
+  headerShown: false,
+})}</code></pre></div></div>
+<p>📱 You should now see how stack navigation works inside of a tab navigator system.</p>
+<div class="heading-block h3-block"><h3>VideoList</h3></div>
+<p>We want to do more.</p>
+<p>🚀 Let’s create <code>components/video_list.js</code> and fill it in:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span><span class="line-number">29</span><span class="line-number">30</span><span class="line-number">31</span><span class="line-number">32</span><span class="line-number">33</span><span class="line-number">34</span><span class="line-number">35</span><span class="line-number">36</span><span class="line-number">37</span><span class="line-number">38</span><span class="line-number">39</span><span class="line-number">40</span><span class="line-number">41</span><span class="line-number">42</span><span class="line-number">43</span><span class="line-number">44</span><span class="line-number">45</span><span class="line-number">46</span><span class="line-number">47</span><span class="line-number">48</span><span class="line-number">49</span><span class="line-number">50</span><span class="line-number">51</span><span class="line-number">52</span><span class="line-number">53</span><span class="line-number">54</span><span class="line-number">55</span><span class="line-number">56</span><span class="line-number">57</span><span class="line-number">58</span><span class="line-number">59</span><span class="line-number">60</span><span class="line-number">61</span><span class="line-number">62</span><span class="line-number">63</span><span class="line-number">64</span><span class="line-number">65</span><span class="line-number">66</span><span class="line-number">67</span><span class="line-number">68</span><span class="line-number">69</span><span class="line-number">70</span><span class="line-number">71</span><span class="line-number">72</span></div><pre><code class="language-javascript">/* eslint-disable react/destructuring-assignment */
+import React, { useState, useEffect } from 'react';
+import { SearchBar } from 'react-native-elements';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  FlatList,
+  TouchableHighlight,
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+// import youtubeSearch from '../services/youtube-api';
+
+const VideoCell = ({ video }) =&gt; {
+  const navigation = useNavigation();
+
+  return (
+    &lt;TouchableHighlight
+      onPress={() =&gt; {
+        navigation.navigate('Detail', { video });
+      }}
+      underlayColor="orange"
+    &gt;
+      &lt;View&gt;
+        &lt;View style={styles.container}&gt;
+          &lt;Image
+            source={{ uri: video.snippet.thumbnails.default.url }}
+            style={styles.thumbnail}
+          /&gt;
+          &lt;View style={styles.rightContainer}&gt;
+            &lt;Text style={styles.title}&gt;{video.snippet.title}&lt;/Text&gt;
+            &lt;Text style={styles.subtitle}&gt;{video.snippet.description}&lt;/Text&gt;
+          &lt;/View&gt;
+        &lt;/View&gt;
+        &lt;View style={styles.separator} /&gt;
+      &lt;/View&gt;
+    &lt;/TouchableHighlight&gt;
+  );
+};
+
+const VideoList = () =&gt; {
+  const [query, setQuery] = useState('');
+  const [dataSource, setDataSource] = useState([]);
+
+  // add useEffect here
+
+  return (
+    &lt;View&gt;
+      &lt;SearchBar
+        showsCancelButton={false}
+        onChangeText={(newQuery) =&gt; {
+          setQuery(newQuery);
+        }}
+        value={query}
+        inputContainerStyle={{ backgroundColor: 'white' }}
+        containerStyle={{ backgroundColor: '#c4302b' }}
+      /&gt;
+
+      &lt;FlatList
+        data={dataSource}
+        renderItem={({ item }) =&gt; {
+          return &lt;VideoCell video={item} /&gt;;
+        }}
+        keyExtractor={(item) =&gt; item.snippet.thumbnails.default.url}
+        style={styles.listView}
+      /&gt;
+    &lt;/View&gt;
+  );
+};</code></pre></div></div>
+<p>🚀 And we should add in some styles too. Let’s make it a little more interesting this time:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span><span class="line-number">18</span><span class="line-number">19</span><span class="line-number">20</span><span class="line-number">21</span><span class="line-number">22</span><span class="line-number">23</span><span class="line-number">24</span><span class="line-number">25</span><span class="line-number">26</span><span class="line-number">27</span><span class="line-number">28</span><span class="line-number">29</span><span class="line-number">30</span><span class="line-number">31</span><span class="line-number">32</span><span class="line-number">33</span><span class="line-number">34</span><span class="line-number">35</span><span class="line-number">36</span><span class="line-number">37</span><span class="line-number">38</span></div><pre><code class="language-javascript">const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'rgb(240,240,240)',
+  },
+  thumbnail: {
+    width: 100,
+    height: 100,
+    marginRight: 5,
+    backgroundColor: 'black',
+  },
+  rightContainer: {
+    flex: 1,
+    padding: 5,
+    height: 100,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 3,
+  },
+  subtitle: {
+    fontSize: 12,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: 'rgb(200,200,200)',
+  },
+  listView: {
+    backgroundColor: 'rgb(240,240,240)',
+  },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});</code></pre></div></div>
+<p>🚀 Alright, let’s update the <code>search_tab.js</code> to show our new VideoList component:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span></div><pre><code class="language-javascript">&lt;Stack.Screen name="Search" component={VideoList} /&gt;;</code></pre></div></div>
+<p>🚀 While we’re here, let’s jazz up the style of the youtube search header:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span></div><pre><code class="language-javascript">&lt;Stack.Screen
+  name="Search"
+  component={VideoList}
+  options={{
+    title: 'Youtube Search',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+  }}
+/&gt;;</code></pre></div></div>
+<div class="heading-block h3-block"><h3>Youtube API</h3></div>
+<p>Ah darn, one other thing. We need to actually have a reference to the API, right? This next part should (hopefully) look super familiar.</p>
+<p>🚀 Create a new file in the services directory, <code>services/youtube-api.js</code>.</p>
+<p>Sound familiar? We did this in <a href="https://app.classmoji.io/dartmouth-cs52-26w/pages/cb1b1fc2-39ca-4151-a252-6a4fc0cbca7f">SA3</a>, and we will be using the exact same api for this react-native app! That’s coooool.</p>
+<p>🚀 Go ahead and find that file and copy it here. We need to do this because we need your individual api key, which you already made in sa4. If you want more than 5 results at a time then add in <code>maxResults: 15</code> to the <code>params</code>.</p>
+<ul><li>Accidentally deleted your API key? No biggie. Just follow the <a href="http://cs52.me/assignments/sa/react-videos/#youtube-api">old instructions from sa4</a>.</li></ul>
+<p>🚀 Let’s add in a <code>useEffect()</code> to trigger our API call whenever the <code>query</code> variable changes:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span></div><pre><code class="language-javascript">useEffect(() =&gt; {
+  youtubeSearch(query)
+    .then((responseData) =&gt; {
+      setDataSource(responseData);
+    })
+    .catch((error) =&gt; {
+      console.log(error);
+    });
+}, [query]);</code></pre></div></div>
+<p>📱 At this point you should be showing a list of videos, coolbeans.</p>
+<div class="heading-block h2-block"><h2>VideoDetail</h2></div>
+<p>At this point, clicking on a list item takes us to a boring screen. Let’s make that better.</p>
+<p>🚀 Create new file called <code>components/video_detail.js</code> and paste in this code:</p>
+<div class="code-block"><div class="code-header"><span class="code-lang">JavaScript</span></div><div class="code-body"><div class="line-numbers"><span class="line-number">1</span><span class="line-number">2</span><span class="line-number">3</span><span class="line-number">4</span><span class="line-number">5</span><span class="line-number">6</span><span class="line-number">7</span><span class="line-number">8</span><span class="line-number">9</span><span class="line-number">10</span><span class="line-number">11</span><span class="line-number">12</span><span class="line-number">13</span><span class="line-number">14</span><span class="line-number">15</span><span class="line-number">16</span><span class="line-number">17</span></div><pre><code class="language-javascript">import React from 'react';
+import WebView from 'react-native-webview';
+
+const VideoDetail = (props) =&gt; {
+  // example of destructuring, the below is equivalent to props.route.params.video
+  const { route } = props;
+  const { video } = route.params;
+
+  return (
+    &lt;WebView
+      source={{ uri: `https://www.youtube.com/embed/${video.id.videoId}` }}
+      automaticallyAdjustContentInsets={false}
+    /&gt;
+  );
+};
+
+export default VideoDetail;</code></pre></div></div>
+<p>🚀 Oops, we forgot to install the Webview component:</p>
+<div class="terminal-block"><div class="terminal-header"><div class="terminal-dots"><span></span><span></span><span></span></div><span class="terminal-title">Terminal</span></div><pre><code class="language-bash">💻 npx expo install react-native-webview</code></pre></div>
+<p>The WebView component is a sort of hybrid component that’s actually just rendering a webpage. The <code>source</code> prop holds a uri that’s called as if in a browser and then displayed in our application. Notice how it looks just like watching youtube on a mobile device. Pretty cool that we can do this within our application alongside native components, huh?</p>
+<p>🚀 Swap out the <code>TempDetail</code> view in your <code>search_tab.js</code> for this new component.</p>
+<p>🚀 Now that the app is complete, we’re using all the styling we pasted in awhile ago. Now it’s your turn: play around with the styling in <code>video_list.js</code>. If you haven’t enabled hot-reloading yet, do that, it’ll make it easy to see all your styling changes.</p>
+<div class="heading-block h2-block"><h2>And We Are Done!</h2></div>
+<p>Look at you! You spend eight weeks in full-stack web dev, but little did you know it was actually smartphone programming in disguise!</p>
+<div class="heading-block h2-block"><h2>Submission</h2></div>
+<p>To submit, post a comment in the ECSC: React Native - Part 1 issue.  Submit screenshots of your app working and a response to:  describe what you made, what worked, and what didn’t. </p>
+<div class="heading-block h2-block"><h2>Resources</h2></div>
+<ul><li><a href="https://docs.expo.io/">https://docs.expo.io/</a></li><li><a href="http://www.reactnative.com/">http://www.reactnative.com/</a></li><li><a href="https://reactnavigation.org">https://reactnavigation.org</a></li><li><a href="https://facebook.github.io/react-native/">https://facebook.github.io/react-native/</a></li><li><a href="https://github.com/jondot/awesome-react-native">https://github.com/jondot/awesome-react-native</a></li></ul>
+<p><em>Thanks to: Jane Lee, Sia Peng, Armin Mahban, Adam Rinehouse for the original workshop in 17S. Refactored in 18S for expo.io and React Navigation. Refactored in 19S by Angela Li for React Navigation 5.x. Refactored in 24S by Eric Lu to update to Expo v50 and remove React class components.</em></p>
+</body>
+</html>
