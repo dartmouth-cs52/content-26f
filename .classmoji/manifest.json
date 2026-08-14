@@ -1,0 +1,280 @@
+{
+  "repositories": {
+    "ai-code-agents-intro": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "6a364fb6-1b9d-4cb5-b1c0-78eff6ff01f7": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "extra-credit-shorts": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "2fee7be9-7b8b-450b-b302-a3360e4017c6": {
+          "pages": [],
+          "slides": []
+        },
+        "044aa924-d324-4134-b706-8eb29a6d2ca4": {
+          "pages": [],
+          "slides": []
+        },
+        "73924dad-06bd-420f-9fba-3f3ffd43d314": {
+          "pages": [],
+          "slides": []
+        },
+        "71519bb0-787c-4bcd-9126-7adf6d4a7a11": {
+          "pages": [],
+          "slides": []
+        },
+        "928537e2-3761-4968-9ed1-75e09901f07c": {
+          "pages": [],
+          "slides": []
+        },
+        "e8c10c4c-31a6-410e-8d52-575f96630b3f": {
+          "pages": [],
+          "slides": []
+        },
+        "067c1f2e-b7cf-4a0d-afe2-d2e12f0599aa": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "hello-world": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "13325654-f34d-4700-9bf0-429b2a695720": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "kahoot-api-short-assignment": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "aa5202cc-d439-4e6e-ae4b-f2eb7a2451b3": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "lab1-landing-page": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "9d329600-f62b-4f3d-8b33-f85f4fc11eac": {
+          "pages": [],
+          "slides": []
+        },
+        "1bf41849-7b7e-4243-a3c0-1fc9bc4c68b3": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "lab2-quiz-platform": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "952d0da0-d035-4279-801e-c6c4f642dcdc": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "lab3-react-notes": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "42d1bc16-4fb8-4b74-b0d3-68da895cbe1f": {
+          "pages": [],
+          "slides": []
+        },
+        "d480df49-19eb-44f7-876b-fdd9805aa81f": {
+          "pages": [],
+          "slides": []
+        },
+        "15f77c7a-6e7f-48cb-8ef3-19af4c0e1954": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "lab4-platform-client": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "b91a2814-c376-4995-9024-0e7bd966314c": {
+          "pages": [],
+          "slides": []
+        },
+        "3d1fdbcc-b367-4405-9d3e-821e02bee8b8": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "lab5-platform-api": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "c9cf5df1-59bb-4186-baf8-cf70d1b6797d": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "project": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "49480ab0-ea7a-49b6-9bd7-26398e5de990": {
+          "pages": [],
+          "slides": []
+        },
+        "becd1674-4faa-42bc-b831-5706ca1a1693": {
+          "pages": [],
+          "slides": []
+        },
+        "90a6eed4-27f2-44a7-81e0-c1ed31051cf3": {
+          "pages": [],
+          "slides": []
+        },
+        "82ea581f-2da1-4dda-a6e6-e503b0c770be": {
+          "pages": [],
+          "slides": []
+        },
+        "2b0be6ec-564a-4253-af2a-5678384e0c41": {
+          "pages": [],
+          "slides": []
+        },
+        "fb930950-ee36-4c82-94ff-7e946d07fe6f": {
+          "pages": [],
+          "slides": []
+        },
+        "e2f62109-96fe-45b7-9185-a70680ca40e6": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "project-api": {
+      "pages": [],
+      "slides": [],
+      "assignments": {}
+    },
+    "react-intro": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "32631e2b-71ec-4899-80c8-fc402dbf7eb0": {
+          "pages": [],
+          "slides": []
+        },
+        "6c1be6b8-31b7-4a33-9280-269e46246065": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "sa-wordle-api": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "e1326d5e-1851-4c75-b309-7e24d9bf7914": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    },
+    "starterpack": {
+      "pages": [],
+      "slides": [],
+      "assignments": {
+        "0d776f1e-ce92-4d32-8dae-99719aa93298": {
+          "pages": [],
+          "slides": []
+        },
+        "65468d35-eb7a-4a2d-8413-53b4744fc292": {
+          "pages": [],
+          "slides": []
+        },
+        "aeda79e0-f91c-4a9a-8f8b-a452cfe82d48": {
+          "pages": [],
+          "slides": []
+        }
+      }
+    }
+  },
+  "general": {
+    "pages": [
+      "ecsa-intro-to-api-testing",
+      "ecsa-react-native-part-1",
+      "ecsa-frontend-and-backend-authentication",
+      "ecsa-git-map",
+      "ecsa-uploading-images",
+      "ecsa-websockets",
+      "ecsa-react-native-part-2",
+      "pre-lab-3-react-notes",
+      "intro-to-cypress-and-web-testing",
+      "sa6-kahoot-api",
+      "sa-routing-short-assignment",
+      "sa-state-management-short-assignment",
+      "sa-intro-react-short-assignment",
+      "sa-frontend-starterpack-with-vite",
+      "sa0-hello-world-and-local-dev-environment-short-assignment",
+      "lab-5-platform-api",
+      "lab-4-platform-frontend",
+      "pre-lab-4-platform-client",
+      "lab-3-react-notes",
+      "lab-2-build-a-buzzfeed-quiz",
+      "lab-1-part-2-build-a-landing-page-css",
+      "lab-1-part-1-build-a-landing-page-html",
+      "dartmouth-cs52",
+      "logistics",
+      "project-1-first-team-meeting",
+      "project-7-final-project-submission",
+      "project-6-final-demos",
+      "project-5-dev-site-and-wiring",
+      "project-4-scaffolding",
+      "project-3-mockups-and-sketches",
+      "project-2-feature-spec",
+      "projects",
+      "project-0-pitch-ideas",
+      "lab-2-v2-build-a-buzzfeed-quiz",
+      "sa-ai-coding-agents",
+      "coding-agents-best-practices",
+      "sa-wordle-api",
+      "supply-chain-security"
+    ],
+    "slides": [
+      "welcome",
+      "html",
+      "css",
+      "the-interwebs",
+      "the-dom",
+      "javascript-intro",
+      "more-javascript",
+      "asynchronous-javascript",
+      "intro-to-web-frameworks",
+      "intro-to-react",
+      "intro-to-frontend-testing",
+      "immutability-and-services",
+      "project-intro",
+      "routing",
+      "state-management",
+      "design",
+      "rest",
+      "authentication-and-authorization",
+      "project-extras",
+      "deployment",
+      "wrap-up"
+    ]
+  }
+}
