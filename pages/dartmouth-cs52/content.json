@@ -1,58 +1,13 @@
 {
   "blocks": [
     {
-      "id": "862ca2f3-ef8a-40dc-a1c2-92dd8a6f5c70",
-      "type": "columnList",
-      "props": {},
-      "children": [
-        {
-          "id": "48da109b-ef2a-4a2b-95ff-db889dcbff4c",
-          "type": "column",
-          "props": {
-            "width": 1
-          },
-          "children": [
-            {
-              "id": "336ce516-154a-4813-917c-03fc956d70d6",
-              "type": "pageLink",
-              "props": {
-                "pageId": "5f67a29d-e855-4bc6-956f-b4f1d5db2e99",
-                "pageTitle": "Projects"
-              },
-              "children": []
-            },
-            {
-              "id": "1b718290-09b1-4497-a8f6-1e8875303769",
-              "type": "paragraph",
-              "props": {
-                "backgroundColor": "default",
-                "textColor": "default",
-                "textAlignment": "left"
-              },
-              "content": [],
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "45137e5a-f02b-4a02-bc9c-7d1983905de0",
-          "type": "column",
-          "props": {
-            "width": 1
-          },
-          "children": [
-            {
-              "id": "1070ee6c-69b6-49aa-b110-64007a813571",
-              "type": "pageLink",
-              "props": {
-                "pageId": "059af33d-2e50-4c49-9685-21f73ae32777",
-                "pageTitle": "Logistics"
-              },
-              "children": []
-            }
-          ]
-        }
-      ]
+      "id": "2f1d34b3-361d-4f80-ac88-8b9cb139838d",
+      "type": "navGrid",
+      "props": {
+        "entries": "[{\"kind\":\"page\",\"pageId\":\"5f67a29d-e855-4bc6-956f-b4f1d5db2e99\",\"title\":\"Projects\"},{\"kind\":\"page\",\"pageId\":\"059af33d-2e50-4c49-9685-21f73ae32777\",\"title\":\"Logistics\"}]",
+        "columns": 2
+      },
+      "children": []
     },
     {
       "id": "c5b35052-2e7d-400f-ae89-bad4f7992c66",
