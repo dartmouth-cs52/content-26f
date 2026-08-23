@@ -4,7 +4,7 @@
       "id": "2f1d34b3-361d-4f80-ac88-8b9cb139838d",
       "type": "navGrid",
       "props": {
-        "entries": "[{\"kind\":\"page\",\"pageId\":\"5f67a29d-e855-4bc6-956f-b4f1d5db2e99\",\"title\":\"Projects\"},{\"kind\":\"page\",\"pageId\":\"059af33d-2e50-4c49-9685-21f73ae32777\",\"title\":\"Logistics\"},{\"kind\":\"external\",\"url\":\"https://schedule/\",\"label\":\"Schedule\"}]",
+        "entries": "[{\"kind\":\"page\",\"pageId\":\"5f67a29d-e855-4bc6-956f-b4f1d5db2e99\",\"title\":\"Projects\"},{\"kind\":\"page\",\"pageId\":\"059af33d-2e50-4c49-9685-21f73ae32777\",\"title\":\"Logistics\"}]",
         "columns": 2
       },
       "children": []
