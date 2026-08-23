@@ -49,7 +49,9 @@
       "slides": [],
       "assignments": {
         "13325654-f34d-4700-9bf0-429b2a695720": {
-          "pages": [],
+          "pages": [
+            "sa0-hello-world-and-local-dev-environment-short-assignment"
+          ],
           "slides": []
         }
       }
@@ -228,7 +230,6 @@
       "sa-state-management-short-assignment",
       "sa-intro-react-short-assignment",
       "sa-frontend-starterpack-with-vite",
-      "sa0-hello-world-and-local-dev-environment-short-assignment",
       "lab-5-platform-api",
       "lab-4-platform-frontend",
       "pre-lab-4-platform-client",
@@ -236,8 +237,6 @@
       "lab-2-build-a-buzzfeed-quiz",
       "lab-1-part-2-build-a-landing-page-css",
       "lab-1-part-1-build-a-landing-page-html",
-      "dartmouth-cs52",
-      "logistics",
       "project-1-first-team-meeting",
       "project-7-final-project-submission",
       "project-6-final-demos",
@@ -245,13 +244,15 @@
       "project-4-scaffolding",
       "project-3-mockups-and-sketches",
       "project-2-feature-spec",
-      "projects",
       "project-0-pitch-ideas",
       "lab-2-v2-build-a-buzzfeed-quiz",
+      "logistics",
       "sa-ai-coding-agents",
       "coding-agents-best-practices",
       "sa-wordle-api",
-      "supply-chain-security"
+      "supply-chain-security",
+      "projects",
+      "dartmouth-cs52"
     ],
     "slides": [
       "welcome",
