@@ -539,15 +539,15 @@
           },
           "children": [
             {
-              "id": "5bf00165-4dba-435b-a94a-0edf7414da0f",
               "type": "profile",
               "props": {
-                "name": "Caleb Ash",
-                "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259642694-caleb-classmoji.jpeg",
+                "name": "Pape Sow Traore",
+                "title": "CTO",
+                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259934119-classmoji-profile.jpg",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "5bf00165-4dba-435b-a94a-0edf7414da0f"
             }
           ]
         },
@@ -559,15 +559,15 @@
           },
           "children": [
             {
-              "id": "212b6346-baf9-4836-b397-59c7bf03eebd",
               "type": "profile",
               "props": {
-                "name": "Emmanuel Kasuti",
+                "name": "Ellie Dalton",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259756860-kasuti-classmoji.jpeg",
+                "imageUrl": "https://github.com/inthecrowsnest.png",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "212b6346-baf9-4836-b397-59c7bf03eebd"
             }
           ]
         }
@@ -617,15 +617,15 @@
           },
           "children": [
             {
-              "id": "59ba9648-e00b-426f-8250-ec81b83cd3dc",
               "type": "profile",
               "props": {
-                "name": "Hamza Najam",
+                "name": "Jaziel Aquino",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259890243-hamza-classmoji.jpeg",
+                "imageUrl": "https://github.com/JazielAqu.png",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "59ba9648-e00b-426f-8250-ec81b83cd3dc"
             }
           ]
         },
@@ -637,15 +637,15 @@
           },
           "children": [
             {
-              "id": "3900296b-c470-4fa5-b85f-ca648ec9f47b",
               "type": "profile",
               "props": {
-                "name": "Joyce Zou",
+                "name": "Joy Maina",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259895941-joyce-classmoji.jpeg",
+                "imageUrl": "https://github.com/Joywambui-maina.png",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "3900296b-c470-4fa5-b85f-ca648ec9f47b"
             }
           ]
         }
@@ -675,15 +675,15 @@
           },
           "children": [
             {
-              "id": "07e7aaa0-cc8b-4d1e-9ebe-52265a1cfcfc",
               "type": "profile",
               "props": {
-                "name": "Kalina Duncheva",
+                "name": "Joyce Zou",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259903468-kalina-classmoji.jpeg",
+                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259895941-joyce-classmoji.jpeg",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "07e7aaa0-cc8b-4d1e-9ebe-52265a1cfcfc"
             }
           ]
         },
@@ -695,15 +695,15 @@
           },
           "children": [
             {
-              "id": "b8f0496c-877e-4cf0-bf96-be9e987e84ec",
               "type": "profile",
               "props": {
-                "name": "Muhammad Moiz",
+                "name": "Laura Liu",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259912720-classmoji-image-1767570443316.jpeg",
+                "imageUrl": "https://github.com/laurayliu.png",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "b8f0496c-877e-4cf0-bf96-be9e987e84ec"
             }
           ]
         },
@@ -715,15 +715,15 @@
           },
           "children": [
             {
-              "id": "d8536aaa-9fc1-4a2a-99b6-cb49a61446dc",
               "type": "profile",
               "props": {
-                "name": "Ranvir Deshmukh",
+                "name": "Manzi Mudahemuka",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259920949-ranvir-classmoji.jpeg",
+                "imageUrl": "https://github.com/MManzicoder.png",
                 "links": ""
               },
-              "children": []
+              "children": [],
+              "id": "d8536aaa-9fc1-4a2a-99b6-cb49a61446dc"
             }
           ]
         }
@@ -753,55 +753,15 @@
           },
           "children": [
             {
-              "id": "19e01a5f-7d52-440d-a06f-fa4be03e0857",
               "type": "profile",
               "props": {
-                "name": "Selena Zhou",
+                "name": "Sophie Park",
                 "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259925052-selena-classmoji.jpeg",
+                "imageUrl": "https://github.com/sophp516.png",
                 "links": ""
               },
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "51717a8b-10bb-4070-8098-a50298cf031f",
-          "type": "column",
-          "props": {
-            "width": 1
-          },
-          "children": [
-            {
-              "id": "f0544b49-d7f2-4ac9-8cc4-a617cca24205",
-              "type": "profile",
-              "props": {
-                "name": "Thomas Cannon Clark",
-                "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259929886-classmoji-thomas.png",
-                "links": ""
-              },
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "f13d1d61-b238-452b-85dc-c4f7b8abb3d6",
-          "type": "column",
-          "props": {
-            "width": 1
-          },
-          "children": [
-            {
-              "id": "b7a932ac-a869-4aa2-bec4-70b61cae2de9",
-              "type": "profile",
-              "props": {
-                "name": "Pape Sow Traore",
-                "title": "Teaching Assistant",
-                "imageUrl": "https://raw.githubusercontent.com/dartmouth-cs52/content-26f/main/pages/dartmouth-cs52/assets/1774259934119-classmoji-profile.jpg",
-                "links": ""
-              },
-              "children": []
+              "children": [],
+              "id": "19e01a5f-7d52-440d-a06f-fa4be03e0857"
             }
           ]
         }
