@@ -218,7 +218,7 @@
         },
         {
           "type": "link",
-          "href": "https://cs52.me/waitlist",
+          "href": "https://cs52.me/forms/cs52-waitlist",
           "content": [
             {
               "type": "text",
@@ -229,7 +229,7 @@
         },
         {
           "type": "text",
-          "text": ". This waitlist is 100% FIFO (from an optimal range of class years), 50% of the class gets in via Registrar course selection and up to an additional 50% through this waitlist afterward. Getting on this waitlist does not guarantee a spot. This class is interactive and project-based based so we are only able to scale it so far while retaining flexible projects and individualized attention. Regardless of waitlist status, you must attempt to register for the course as you normally would during course selection, as the waitlist only kicks in after that.",
+          "text": ". This waitlist is 100% FIFO (from an optimal range of class years), 50% of the class gets in via Registrar course selection and up to an additional 50% through this waitlist afterward. Getting on this waitlist does not guarantee a spot. This class is interactive and project-based based so we are only able to scale it so far while retaining flexible projects and individualized attention. Regardless of waitlist status, you must attempt to register for the course as you normally would during course selection, as the waitlist only kicks in after that. ",
           "styles": {}
         }
       ],
