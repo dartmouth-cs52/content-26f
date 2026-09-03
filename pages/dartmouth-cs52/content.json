@@ -741,7 +741,6 @@
       "children": []
     },
     {
-      "id": "f2640fee-d52d-4e54-a97e-97f22da7b5ed",
       "type": "columnList",
       "props": {},
       "children": [
@@ -753,6 +752,7 @@
           },
           "children": [
             {
+              "id": "19e01a5f-7d52-440d-a06f-fa4be03e0857",
               "type": "profile",
               "props": {
                 "name": "Sophie Park",
@@ -760,12 +760,44 @@
                 "imageUrl": "https://github.com/sophp516.png",
                 "links": ""
               },
-              "children": [],
-              "id": "19e01a5f-7d52-440d-a06f-fa4be03e0857"
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "b8f15588-4d23-4317-b0ce-0ffca5e18983",
+          "type": "column",
+          "props": {
+            "width": 1
+          },
+          "children": [
+            {
+              "id": "440a6e47-ad32-45e3-98ba-1e30634b8653",
+              "type": "paragraph",
+              "props": {},
+              "content": [],
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "8990d483-53d3-419c-aee6-ee777108740c",
+          "type": "column",
+          "props": {
+            "width": 1
+          },
+          "children": [
+            {
+              "id": "74323902-a8a9-4de1-b2f7-ce3bfd3f5e59",
+              "type": "paragraph",
+              "props": {},
+              "content": [],
+              "children": []
             }
           ]
         }
-      ]
+      ],
+      "id": "f2640fee-d52d-4e54-a97e-97f22da7b5ed"
     },
     {
       "id": "65167e6c-026b-43c3-a5e4-9a771d63e585",
